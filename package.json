@@ -1,0 +1,57 @@
+{
+  "name": "next-stack-auth",
+  "version": "0.0.1",
+  "description": "Full stack authentication for NextJs.",
+  "author": "mdmahikaishar <mahikaishar@gmail.com>",
+  "license": "MIT",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/mjs/index.js",
+  "scripts": {
+    "lint": "tsc --noEmit",
+    "build": "pnpm run build:cjs && pnpm run build:mjs",
+    "build:cjs": "tsc --outDir ./dist/cjs --module commonjs",
+    "build:mjs": "tsc --outDir ./dist/mjs --module es6 --moduleResolution node"
+  },
+  "exports": {
+    ".": [
+      {
+        "types": "./dist/cjs/index.d.ts",
+        "import": "./dist/mjs/index.js",
+        "require": "./dist/cjs/index.js",
+        "default": "./dist/cjs/index.js"
+      }
+    ],
+    "./client": [
+      {
+        "types": "./dist/cjs/client/index.d.ts",
+        "import": "./dist/mjs/client/index.js",
+        "require": "./dist/cjs/client/index.js",
+        "default": "./dist/cjs/client/index.js"
+      }
+    ]
+  },
+  "files": [
+    "dist/cjs",
+    "dist/mjs"
+  ],
+  "keywords": [
+    "next-stack-auth",
+    "authentication",
+    "jwt-token",
+    "nextjs"
+  ],
+  "peerDependencies": {
+    "axios": "^1.4.0",
+    "js-cookie": "^3.0.5",
+    "next": "^13.4.12",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
+    "@types/node": "^20.4.8",
+    "@types/react": "^18.2.18",
+    "tslib": "^2.6.1",
+    "typescript": "^5.1.6"
+  }
+}
